@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Hoc_Tap\\lap_trinh_web\\Baitap1\\",
+  "WorkspaceRootPath": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\Baitap1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81E93DB7-B325-49B1-A993-42CE3C4C6757}|Baitap1\\Baitap1.csproj|d:\\hoc_tap\\lap_trinh_web\\baitap1\\baitap1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{81E93DB7-B325-49B1-A993-42CE3C4C6757}|Baitap1\\Baitap1.csproj|solutionrelative:baitap1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\Baitap1\\Baitap1\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Baitap1\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Hoc_Tap\\lap_trinh_web\\Baitap1\\Baitap1\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\Baitap1\\Baitap1\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Baitap1\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\Hoc_Tap\\lap_trinh_web\\Baitap1\\Baitap1\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\Baitap1\\Baitap1\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Baitap1\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-20T07:47:29.512Z",
               "EditorCaption": ""
