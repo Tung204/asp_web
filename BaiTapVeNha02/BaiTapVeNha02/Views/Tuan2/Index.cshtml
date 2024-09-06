@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+<div>
+        <div class="header">
+            <h1>Bài tập</h1>
+        </div>
+        <div class="ctn1">
+            <div class="left">
+                <p>Họ tên: @ViewBag.HoTen</p>
+                <p>MSSV: @ViewBag.MSSV</p>
+            </div>
+            <div class="main">
+                <a href= "~/Tuan2/Profile">
+                    <img src="~/images/Anh.jpg" style= "width:70px;" class="image">
+                </a>     
+                <p>Giới thiệu bản thân</p>
+        </div>
+
+        </div>
+    
+<footer class="footer">
+  <p>Copyright &copy; @ViewBag.HoTen - @ViewData["Nam"] </p>
+</footer>
+
+</body>
+
+
