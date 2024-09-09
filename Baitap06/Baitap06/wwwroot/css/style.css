@@ -1,0 +1,29 @@
+.hero-section {
+    background-image: url('../images/nen2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px 0;
+  }
+  .hero-section h1, .hero-section p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  .service-box, .benefits-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+  ul.custom-list {
+    list-style: none; 
+    padding: 0; 
+}
+.footer-bg {
+    background-image: url('../images/bg012078_1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.text-left p {
+    margin-bottom: 1px;
+  }
