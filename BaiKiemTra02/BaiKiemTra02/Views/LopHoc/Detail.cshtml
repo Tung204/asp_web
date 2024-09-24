@@ -1,0 +1,10 @@
+﻿@using BaiKiemTra02.Models
+@model LopHoc
+<div>
+	ID: <b>@Model.Id</b> <br />
+	Tên thể loại: <b>@Model.TenLopHoc</b><br />
+	Năm nhập học: <b> @String.Format("{00:dd/MM/yyyy}", Model.NamNhapHoc)</b> <br />
+	Năm ra trường: <b> @String.Format("{00:dd/MM/yyyy}", Model.NamRaTruong)</b> <br />
+	Số lượng sinh viên: <b>@Model.SoLuongSinhVien</b><br />
+	<a asp-controller="LopHoc" asp-action="Index" class="btn btn-primary">Quay ve</a>
+</div>

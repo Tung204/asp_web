@@ -4,6 +4,11 @@
 }
 
 <div class="container">
+    <form asp-action="Search" method="get">
+        <input type="text" name="searchString" placeholder="Nhap the loai can tim..." value="@ViewBag.SearchString"/>
+        <input type ="submit" value="tim kiem"/>
+    </form>
+    <hr/>
     <table class="table">
         <thead>
             <th>Tên Thể loại</th>
@@ -23,6 +28,11 @@
                     <td width="40%">
                         <a  asp-action="Edit" asp-route-id="@item.Id">
                             Edit
+                        </a>
+                    </td>
+                    <td width="40%">
+                        <a asp-action="Detail" asp-route-id="@item.Id">
+                            Detail
                         </a>
                     </td>
                     <td width="40%">

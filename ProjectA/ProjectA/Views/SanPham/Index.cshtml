@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SanPham>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Ten San PHam</th>
+				<th>Mo ta</th>
+				<th>Gia</th>
+				<th>Hinh anh</th>
+				<th>The Loai</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var item in Model)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.Description</td>
+					<td>@item.price</td>
+					<td><img src="@item.ImageUrl" width="50%"/></td>
+					<td>@item.TheLoai.Name</td>
+					<td>
+						<a asp-action=""></a>
+						
+
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
