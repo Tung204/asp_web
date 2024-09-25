@@ -1,0 +1,43 @@
+﻿@using ProjectA.Models
+@model SanPham
+<div class="container">
+    <h3>Thêm San pham</h3>
+    <div asp-validation-summary="All" class="text-danger">   </div>
+    <form method="post" asp-action="Upsert">
+        <div class="form-group">
+            <label asp-for="Name">Tên thể loại</label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Ngày tạo</label>
+            <input asp-for="Description" type="date" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="price">Ngày tạo</label>
+            <input asp-for="price" type="number" class="form-control" />
+            <span asp-validation-for="price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageUrl">Ngày tạo</label>
+            <input asp-for="ImageUrl" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TheLoaiId">Ngày tạo</label>
+            <select asp-for="TheLoaiId" asp-items="@ViewBag.DSTheLoai" class="form-control">
+                <option disabled>Chon the loai</option>
+            </select>
+            <span asp-validation-for="TheLoaiId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">@(Model.Id == 0?"Tao moi":"Cap nhat")Tạo mới</button>
+        <a asp-action="Index" class="btn btn-secondary"></a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

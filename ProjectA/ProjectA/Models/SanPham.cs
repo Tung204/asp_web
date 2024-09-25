@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectA.Models
@@ -16,6 +17,7 @@ namespace ProjectA.Models
 		[Required]
 		public int TheLoaiId { get; set; }
 		[ForeignKey("TheLoaiId")]
+		[ValidateNever]
 		public TheLoai TheLoai { get; set; }
 	}
 }
