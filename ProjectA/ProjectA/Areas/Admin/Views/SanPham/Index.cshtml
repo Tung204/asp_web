@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SanPham>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Ten San PHam</th>
+				<th>Mo ta</th>
+				<th>Gia</th>
+				<th>Hinh anh</th>
+				<th>The Loai</th>
+				<th>
+					Chuc nang
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var item in Model)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.Description</td>
+					<td>@item.price</td>
+					<td><img src="@item.ImageUrl" width="50%"/></td>
+					<td>@item.TheLoai.Name</td>
+					<td>
+						<a asp-action="Upsert" asp-route-id="@item.Id">Edit</a>
+						<a asp-action="Details">Details</a>
+						<a onclick="confirmDelete(@item.Id, $(this))">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<a asp-controller="SanPham" asp-action="Upsert" class="btn btn-primary">Them moi</a>
+</div>
+
+<script>
+	function confirmDelete(id, row){
+		if (confirm("Ban co chac chan muon xoa")) {
+			xoa(id, $( row ))
+		}
+	}
+	function xoa(idx, row){
+		$.ajax({
+			url: `SanPham/Delete`,
+			type: 'POST',
+			data: {id: idx},
+			success: function () {
+				if(data.success){
+					row.closest("tr").remove();
+				}
+				else {
+					alert(data.message);
+				}
+			},
+			Error: function (xhr, status, error) {
+				alert("Xoa that bai: " + error);
+			}
+		})
+	}
+</script>
