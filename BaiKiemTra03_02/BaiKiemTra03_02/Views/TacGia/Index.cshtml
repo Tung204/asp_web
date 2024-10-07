@@ -1,0 +1,44 @@
+﻿
+<div class="container">
+    <hr />
+    <table class="table">
+        <thead>
+        <th>Tên Tác giả</th>
+        <th>Quốc tịch</th>
+        <th>Năm sinh</th>
+        <th>Chuc nang</th>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.TacGia)
+            {
+                <tr>
+                    <td width="30%">
+                        @item.Name
+                    </td>
+                    <td width="30%">
+                        @item.QuocTich
+                    </td>
+                    <td width="30%">
+                        @String.Format("{00:dd/MM/yyyy}", item.NamSinh)
+                    </td>
+                    <td width="40%">
+                        <a asp-action="Edit" asp-route-id="@item.Id">
+                            Edit
+                        </a>
+                    </td>
+                    <td width="40%">
+                        <a asp-action="Detail" asp-route-id="@item.Id">
+                            Detail
+                        </a>
+                    </td>
+                    <td width="40%">
+                        <a asp-action="Delete" asp-route-id="@item.Id">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="TacGia" asp-action="Create" class="btn btn-primary">Thêm mới</a>
+</div>

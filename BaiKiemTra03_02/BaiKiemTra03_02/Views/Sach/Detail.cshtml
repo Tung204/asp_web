@@ -1,0 +1,10 @@
+﻿@using BaiKiemTra03_02.Models
+@model Sach
+<div>
+	ID: <b>@Model.Id</b> <br />
+	Tên thể loại: <b>@Model.Name</b><br />
+	Tiêu đề: <b>@Model.TieuDe</b>
+	Năm Xuất bản: <b>@Model.NamXB</b>
+	Tên Tác giả: <b>@Model.TacGia.Name</b>
+	<a asp-controller="Sach" asp-action="Index" class="btn btn-primary">Quay ve</a>
+</div>

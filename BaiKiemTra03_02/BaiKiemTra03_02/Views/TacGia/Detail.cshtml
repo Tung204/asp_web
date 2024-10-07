@@ -1,0 +1,9 @@
+﻿@using BaiKiemTra03_02.Models
+@model TacGia
+<div>
+	ID: <b>@Model.Id</b> <br />
+	Tên tác giả: <b>@Model.Name</b><br />
+	Quốc tịch: <b>@Model.QuocTich</b><br />
+	Ngày tạo: <b> @String.Format("{00:dd/MM/yyyy}", Model.NamSinh)</b> <br />
+	<a asp-controller="TheLoai" asp-action="Index" class="btn btn-primary">Quay ve</a>
+</div>

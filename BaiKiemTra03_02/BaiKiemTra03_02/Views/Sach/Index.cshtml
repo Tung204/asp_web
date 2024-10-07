@@ -1,0 +1,50 @@
+﻿@using BaiKiemTra03_02.Models
+@model IEnumerable<Sach>
+<div class="table">
+    <table>
+        <thead>
+            <tr>
+                <th>Tên sách</th>
+                <th>Tiêu đề sách</th>
+                <th>Năm xuất bản</th>
+                <th>Tên tác giả</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td width="20%">@item.Name</td>
+                    <td width="20%">@item.TieuDe</td>
+                    <td width="20%">@item.NamXB</td>
+                    <td width="20%">@item.TacGia.Name</td>
+                    <td width="40%">
+                        <a asp-action="Upsert" asp-route-id="@item.Id">Edit</a>|
+                        <a href="">Details</a>|
+                        <a href="#" onclick="confirmDelete(@item.Id, $(this))">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Sach" asp-action="Upsert" class="btn btn-primary">Thêm mới</a>
+</div>
+
+<script>
+    function confirmDelete(id, row) {
+        if (confirm("Ban co muon xoa SP co id la " + id + "?")) {
+            xoa(id, $(row))
+        }
+    }
+    function xoa(idx, row){
+        $.ajax({
+            url: `Sach/Delete`,
+            data: { id: idx},
+            type: 'POST',
+            success: function (data) {
+                row.closest("tr").remove();
+            }
+        })
+    }
+</script>
