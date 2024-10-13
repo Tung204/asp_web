@@ -13,8 +13,8 @@
 				</th>
 			</tr>
 		</thead>
-		<tbody>
-			@foreach (var item in Model)
+		<tbody> *@
+		@* 	@foreach (var item in Model)
 			{
 				<tr>
 					<td>@item.Name</td>
@@ -23,15 +23,17 @@
 					<td><img src="@item.ImageUrl" width="50%" /></td>
 					<td>@item.TheLoai.Name</td>
 				</tr>
-			}
-		</tbody>
+			} *@
+@* 		</tbody>
 	</table> *@
 	<div class="row">
 		@foreach (var item in Model)
 		{
 			<div class="col-3"> 
 				<div class="card" style="width: 18rem;">
-					<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
+					<a asp-action="Details" asp-route-id="@item.Id">
+						<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
+					</a>
 					<div class="card-body">
 						<h5 class="card-title">@item.Name</h5>
 						<h6 class="card-title">@item.price</h6>
