@@ -1,48 +1,38 @@
-﻿    ﻿
-    @{
-        ViewData["Title"] = "Index";
-    }
+﻿@{
+    ViewData["Title"] = "Index";
+}
 
-    <div class="container">
-        <form asp-action="Search" method="get">
-            <input type="text" name="searchString" placeholder="Nhap the loai can tim..." value="@ViewBag.SearchString"/>
-            <input type ="submit" value="tim kiem"/>
-        </form>
-        <hr/>
-        <table class="table">
-            <thead>
-                <th>Tên Thể loại</th>
-                <th>Ngày tạo</th>
-                <th>Chuc nang</th>
-            </thead>
-            <tbody>
-                @foreach (var item in ViewBag.TheLoai)
-                {
-                    <tr>
-                        <td width="30%">
-                            @item.Name
-                        </td>
-                        <td width="70%">
-                            @String.Format("{00:dd/MM/yyyy}", item.DateCreated)
-                        </td>
-                        <td width="40%">
-                            <a  asp-action="Edit" asp-route-id="@item.Id">
-                                Edit
-                            </a>
-                        </td>
-                        <td width="40%">
-                            <a asp-action="Detail" asp-route-id="@item.Id">
-                                Detail
-                            </a>
-                        </td>
-                        <td width="40%">
-                            <a asp-action="Delete" asp-route-id="@item.Id"> 
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <a asp-controller="TheLoai" asp-action="Create" class="btn btn-primary">Thêm mới</a>
-    </div>
+<div class="container">
+    <form asp-action="Search" method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="searchString" placeholder="Nhập thể loại cần tìm..." value="@ViewBag.SearchString" class="form-control" />
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </div>
+    </form>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tên Thể Loại</th>
+                <th>Ngày Tạo</th>
+                <th>Chức Năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.TheLoai)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Sửa</a>
+                        <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-sm btn-info">Chi tiết</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="TheLoai" asp-action="Create" class="btn btn-success">Thêm Mới</a>
+</div>
+<br />

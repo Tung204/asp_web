@@ -1,46 +1,301 @@
 ﻿@model IEnumerable<SanPham>
+<style>
+	.card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.card-body {
+		flex-grow: 1;
+	}
+
+	.card-img-top {
+		object-fit: contain;
+		width: 100%;
+		height: 200px; /* Hoặc kích thước mong muốn */
+	}
+
+	}
+</style>
 <div class="container">
-@* 	<table class="table">
-		<thead>
-			<tr>
-				<th>Ten San PHam</th>
-				<th>Mo ta</th>
-				<th>Gia</th>
-				<th>Hinh anh</th>
-				<th>The Loai</th>
-				<th>
-					Chuc nang
-				</th>
-			</tr>
-		</thead>
-		<tbody> *@
-		@* 	@foreach (var item in Model)
-			{
-				<tr>
-					<td>@item.Name</td>
-					<td>@item.Description</td>
-					<td>@item.price</td>
-					<td><img src="@item.ImageUrl" width="50%" /></td>
-					<td>@item.TheLoai.Name</td>
-				</tr>
-			} *@
-@* 		</tbody>
-	</table> *@
-	<div class="row">
-		@foreach (var item in Model)
-		{
-			<div class="col-3"> 
-				<div class="card" style="width: 18rem;">
-					<a asp-action="Details" asp-route-id="@item.Id">
-						<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
-					</a>
-					<div class="card-body">
-						<h5 class="card-title">@item.Name</h5>
-						<h6 class="card-title">@item.price</h6>
-						<p class="card-text">@item.Description</p>
+	<!-- slider section -->
+	@{
+		bool isFilterApplied = ViewBag.IsFilterApplied ?? false;
+		bool isFilterByBoSuuTap = ViewBag.IsFilterByBoSuuTap ?? false;
+		bool isFilterSearch = ViewBag.IsFilterSearch ?? false;
+	}
+	@if (!isFilterApplied)
+	{
+		<section class="slider_section">
+			<div class="slider_container">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+							01
+						</li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1">
+							02
+						</li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2">
+							03
+						</li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6 px-0">
+										<div class="img-box">
+											<img src="~/images/aokhoac.png" alt="" style="border-radius: 10px;" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="detail-box">
+											<h1>
+												Áo
+												<br />
+												Khoác
+											</h1>
+											<p>
+												Áo khoác có thiết kế mạnh mẽ, chất liệu bền, màu trung tính, và chi tiết kim loại tạo phong cách cá tính, hiện đại.
+											</p>
+											<a asp-controller="Home"
+											   asp-action="FilterByTheLoai"
+											   asp-route-id="3" class="text-warning">
+												Mua Ngay
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6 px-0">
+										<div class="img-box" >
+											<img src="images/quanjean.png" alt="" style="border-radius: 10px;" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="detail-box">
+											<h1>
+												Quần
+												<br />
+												Jean
+											</h1>
+											<p>
+												Quần jean mang phong cách bụi bặm, chất liệu denim bền, tạo nên vẻ năng động, cá tính và dễ phối đồ
+											</p>
+											<a asp-controller="Home"
+											   asp-action="FilterByTheLoai"
+											   asp-route-id="6" class="text-warning">
+												Mua Ngay
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6 px-0">
+										<div class="img-box">
+											<img src="images/giayd.png" alt="" style="border-radius: 10px;" />
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="detail-box">
+											<h1>
+												Ưu đãi
+												<br />
+												Giày
+											</h1>
+											<p>
+												Ưu đãi giày giảm đến 50%, mua 1 tặng 1 và miễn phí vận chuyển toàn quốc!
+											</p>
+											<a asp-controller="Home"
+											   asp-action="FilterByTheLoai"
+											   asp-route-id="8" class="text-warning">
+												Mua Ngay
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel_btn-box">
+						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+							<span class="sr-only">Previous</span>
+						</a>
+						<img src="images/line.png" alt="" />
+						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+							<span class="sr-only">Next</span>
+						</a>
 					</div>
 				</div>
 			</div>
+		</section>
+		<br />
+		<hr />
+	}
+	<br />
+	@*     <table class="table">
+	<thead>
+	<tr>
+	<th>Tên sản phẩm</th>
+	<th>Mô tả</th>
+	<th>Giá</th>
+	<th>Hình ảnh</th>
+	<th>Thể loại</th>
+	<th>
+	Chức năng
+	</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var item in Model)
+	{
+	<tr>
+	<td>@item.Name</td>
+	<td>@item.Description</td>
+	<td>@item.price</td>
+	<td><img src="@item.ImageUrl" width="50%" /></td>
+	<td>@item.TheLoai.Name</td>
+	<td>
+	<a asp-action="Upsert" asp-route-id="@item.Id">Edit</a>    |
+	<a asp-action="Details">Details</a> |
+	<a class="text-danger" onclick="confirmDelete(@item.Id, $(this))">Delete</a> |
+	</td>
+	</tr>
+	}
+	</tbody>
+	</table> *@
+	<div class="row">
+		@if (isFilterByBoSuuTap)
+		{
+			<div class="row mb-3">
+				<div class="col-12 text-center">
+					<img src="@ViewBag.BoSuuTap.ImageUrl" class="bo-suu-tap-image" alt="Bộ sưu tập: @ViewBag.BoSuuTap.Name" style="width: 80%" />
+				</div>
+				<div class="col-12 text-center">
+					<img src="@ViewBag.BoSuuTap.ImageUrl_2" class="bo-suu-tap-image" alt="Bộ sưu tập: @ViewBag.BoSuuTap.Name" style="width: 80%" />
+				</div>
+				<div class="col-12 text-center">
+					<img src="@ViewBag.BoSuuTap.ImageUrl_3" class="bo-suu-tap-image" alt="Bộ sưu tập: @ViewBag.BoSuuTap.Name" style="width: 80%" />
+				</div>
+				<div class="col-12 text-center">
+					<img src="@ViewBag.BoSuuTap.ImageUrl_4" class="bo-suu-tap-image" alt="Bộ sưu tập: @ViewBag.BoSuuTap.Name" style="width: 80%" />
+				</div>
+			</div>
+
+			<div class="row d-flex justify-content-center flex-wrap">
+			@foreach (var item in Model)
+			{
+					<div class="col-md-10 mb-3">
+						<div class="card h-100" style="border-radius: 10px;">
+							<div class="row no-gutters">
+								<div class="col-md-3">
+									<div class="thumbnail-images">
+										<a asp-action="Details" asp-route-sanphamId="@item.Id">
+											<img src="@item.ImageUrl_2" class="card-img-top" alt="@item.Name" />
+										</a>
+										<a asp-action="Details" asp-route-sanphamId="@item.Id">
+											<img src="@item.ImageUrl_3" class="card-img-top" alt="@item.Name" />
+										</a>
+										<a asp-action="Details" asp-route-sanphamId="@item.Id">
+											<img src="@item.ImageUrl_4" class="card-img-top" alt="@item.Name" />
+										</a>
+									</div>
+								</div>
+								<div class="col-md-5">
+									<a asp-action="Details" asp-route-sanphamId="@item.Id">
+										<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" style="width: 100%; height: auto;" />
+									</a>
+								</div>
+								<div class="col-md-4">
+									<div class="card-body d-flex flex-column justify-content-between" style="margin-top:150px">
+										<h2 class="card-title" style="color:#2c2461">@item.Name</h2>
+										<p class="card-text">@item.Description<br>
+											<b class="text-muted">@item.BoSuuTap.Name</b></p>
+										<p class="card-text"><small class="text-muted">@item.price</small></p>
+										<a asp-action="Details" asp-route-sanphamId="@item.Id" class="btn btn-light border border-5 border-primary rounded-pill text-primary">BUY NOW</a>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			}
+			</div>
+		}
+		@if (!isFilterByBoSuuTap)
+		{
+			@if(!isFilterSearch)
+			{
+				@foreach (var item in Model)
+				{
+					<div class="col-md-3 mb-3">
+						<div class="card h-100" style="border-radius: 10px;">
+							<a asp-action="Details" asp-route-sanphamId="@item.Id">
+								<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
+							</a>
+							<div class="card-body d-flex flex-column">
+								<h5 class="card-title">@item.Name</h5>
+								<h6 class="card-title">@item.Description</h6>
+								<h7 class="card-title">@decimal.Parse(item.price).ToString("N0") VNĐ</h7>
+								@* 	<p class="card-text">@item.Description</p> *@
+								@* <div class="mt-auto">
+					<div class="row">
+					<div class="col-6">
+					<a href="#" class="btn btn-primary w-100">Thêm vào</a>
+					</div>
+					<div class="col-6">
+					<a href="#" class="btn btn-danger w-100">Mua hàng</a>
+					</div>
+					</div>
+					</div> *@
+							</div>
+						</div>
+					</div>
+				}
+			}
+			else
+			{
+				@foreach (var item in ViewBag.SanPham)
+				{
+					<div class="col-md-3 mb-3">
+						<div class="card h-100" style="border-radius: 10px;">
+							<a asp-action="Details" asp-route-sanphamId="@item.Id">
+								<img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
+							</a>
+							<div class="card-body d-flex flex-column">
+								<h5 class="card-title">@item.Name</h5>
+								<h6 class="card-title">@item.Description</h6>
+								<h7 class="card-title">@decimal.Parse(item.price).ToString("N0") VNĐ</h7>
+								@* 	<p class="card-text">@item.Description</p> *@
+								@* <div class="mt-auto">
+					<div class="row">
+					<div class="col-6">
+					<a href="#" class="btn btn-primary w-100">Thêm vào</a>
+					</div>
+					<div class="col-6">
+					<a href="#" class="btn btn-danger w-100">Mua hàng</a>
+					</div>
+					</div>
+					</div> *@
+							</div>
+						</div>
+					</div>
+				}
+			}
 		}
 	</div>
+</div>
+<div class="popup-fixed-ad">
+	<a asp-action="FilterByBoSuuTap" asp-controller="Home" asp-route-id="15" class="ad-img">
+		<img src="https://file.hstatic.net/1000026602/file/140_140.png">
+	</a>
 </div>

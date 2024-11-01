@@ -5,16 +5,296 @@
       "PackagePath": "staticwebassets\\ProjectA.bundle.scp.css"
     },
     {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\fancybox.min.css",
+      "PackagePath": "staticwebassets\\css\\fancybox.min.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\ion.rangeSlider.min.css",
+      "PackagePath": "staticwebassets\\css\\ion.rangeSlider.min.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\mThumbnailScroller.css",
+      "PackagePath": "staticwebassets\\css\\mThumbnailScroller.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\plugins.css",
+      "PackagePath": "staticwebassets\\css\\plugins.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
       "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\style.scss",
+      "PackagePath": "staticwebassets\\css\\style.scss"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\css\\styles.scss.css",
+      "PackagePath": "staticwebassets\\css\\styles.scss.css"
     },
     {
       "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\Arrow-Double-Up.png",
+      "PackagePath": "staticwebassets\\images\\Arrow-Double-Up.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\agency-img.jpg",
+      "PackagePath": "staticwebassets\\images\\agency-img.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\aok.png",
+      "PackagePath": "staticwebassets\\images\\aok.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\aokhoac.png",
+      "PackagePath": "staticwebassets\\images\\aokhoac.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\call.png",
+      "PackagePath": "staticwebassets\\images\\call.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\client-bg.png",
+      "PackagePath": "staticwebassets\\images\\client-bg.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\client.jpg",
+      "PackagePath": "staticwebassets\\images\\client.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\fb.png",
+      "PackagePath": "staticwebassets\\images\\fb.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\giayd.png",
+      "PackagePath": "staticwebassets\\images\\giayd.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\icons8-admin-settings-male-24.png",
+      "PackagePath": "staticwebassets\\images\\icons8-admin-settings-male-24.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\icons8-log-out-24.png",
+      "PackagePath": "staticwebassets\\images\\icons8-log-out-24.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\icons8-search-24.png",
+      "PackagePath": "staticwebassets\\images\\icons8-search-24.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\icons8-shopping-cart-24.png",
+      "PackagePath": "staticwebassets\\images\\icons8-shopping-cart-24.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\img_2148 (1).jpg",
+      "PackagePath": "staticwebassets\\images\\img_2148 (1).jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\img_2148 (2).jpg",
+      "PackagePath": "staticwebassets\\images\\img_2148 (2).jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l1.jpg",
+      "PackagePath": "staticwebassets\\images\\l1.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l2.jpg",
+      "PackagePath": "staticwebassets\\images\\l2.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l3.jpg",
+      "PackagePath": "staticwebassets\\images\\l3.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l4.jpg",
+      "PackagePath": "staticwebassets\\images\\l4.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l5.jpg",
+      "PackagePath": "staticwebassets\\images\\l5.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\l6.jpg",
+      "PackagePath": "staticwebassets\\images\\l6.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\line.png",
+      "PackagePath": "staticwebassets\\images\\line.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\link.png",
+      "PackagePath": "staticwebassets\\images\\link.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\linkedin.png",
+      "PackagePath": "staticwebassets\\images\\linkedin.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\location.png",
+      "PackagePath": "staticwebassets\\images\\location.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\loupe.png",
+      "PackagePath": "staticwebassets\\images\\loupe.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\mail.png",
+      "PackagePath": "staticwebassets\\images\\mail.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\menu.png",
+      "PackagePath": "staticwebassets\\images\\menu.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\next-arrow.png",
+      "PackagePath": "staticwebassets\\images\\next-arrow.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\next.png",
+      "PackagePath": "staticwebassets\\images\\next.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\p1.jpg",
+      "PackagePath": "staticwebassets\\images\\p1.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\p2.jpg",
+      "PackagePath": "staticwebassets\\images\\p2.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\p3.jpg",
+      "PackagePath": "staticwebassets\\images\\p3.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\p4.jpg",
+      "PackagePath": "staticwebassets\\images\\p4.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\prev-arrow.png",
+      "PackagePath": "staticwebassets\\images\\prev-arrow.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\prev.png",
+      "PackagePath": "staticwebassets\\images\\prev.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\quanje.png",
+      "PackagePath": "staticwebassets\\images\\quanje.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\quanjean.png",
+      "PackagePath": "staticwebassets\\images\\quanjean.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\quote.png",
+      "PackagePath": "staticwebassets\\images\\quote.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\search-icon.png",
+      "PackagePath": "staticwebassets\\images\\search-icon.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\search.png",
+      "PackagePath": "staticwebassets\\images\\search.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\service-bg.jpg",
+      "PackagePath": "staticwebassets\\images\\service-bg.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\service-img.jpg",
+      "PackagePath": "staticwebassets\\images\\service-img.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\slider-bg.jpg",
+      "PackagePath": "staticwebassets\\images\\slider-bg.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\slider-img.jpg",
+      "PackagePath": "staticwebassets\\images\\slider-img.jpg"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\team-management.png",
+      "PackagePath": "staticwebassets\\images\\team-management.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\twitter.png",
+      "PackagePath": "staticwebassets\\images\\twitter.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\images\\youtube.png",
+      "PackagePath": "staticwebassets\\images\\youtube.png"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\dayjs.min.js",
+      "PackagePath": "staticwebassets\\js\\dayjs.min.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\fancybox.min.js",
+      "PackagePath": "staticwebassets\\js\\fancybox.min.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\ion.rangeSlider.min.js",
+      "PackagePath": "staticwebassets\\js\\ion.rangeSlider.min.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
+    },
+    {
       "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\json\\quan_huyen.json",
+      "PackagePath": "staticwebassets\\json\\quan_huyen.json"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\json\\tinh_tp.json",
+      "PackagePath": "staticwebassets\\json\\tinh_tp.json"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\json\\tree.json",
+      "PackagePath": "staticwebassets\\json\\tree.json"
+    },
+    {
+      "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\json\\xa_phuong.json",
+      "PackagePath": "staticwebassets\\json\\xa_phuong.json"
     },
     {
       "Id": "D:\\Hoc_Tap\\lap_trinh_web\\asp_web\\ProjectA\\ProjectA\\wwwroot\\lib\\bootstrap\\LICENSE",

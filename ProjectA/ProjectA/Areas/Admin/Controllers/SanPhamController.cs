@@ -19,10 +19,13 @@ namespace ProjectA.Controllers
 		}
 		public IActionResult Index()
 		{
-			IEnumerable<SanPham> sanpham =_db.SanPham.Include("TheLoai").ToList();
+			IEnumerable<SanPham> sanpham = _db.SanPham
+				.Include(sp => sp.TheLoai)      // Bao gồm TheLoai
+				.Include(sp => sp.NhaSanXuat)   // Bao gồm NhaSanXuat
+				.ToList();
 			return View(sanpham);
 		}
-		[HttpGet]
+		//[HttpGet]
 		public IActionResult Upsert(int id)
 		{
 			SanPham sanpham = new SanPham();
@@ -34,12 +37,31 @@ namespace ProjectA.Controllers
 				}
 				);
 			ViewBag.DSTheLoai = dstheloai;
-			if(id == 0)
+
+            // Danh sách nhà sản xuất
+            IEnumerable<SelectListItem> dsNhaSanXuat = _db.NhaSanXuat.Select(
+                item => new SelectListItem
+                {
+                    Value = item.Id.ToString(),
+                    Text = item.Name
+                }
+            );
+            ViewBag.DSNhaSX = dsNhaSanXuat;
+
+            if (id == 0)
 			{
                 return View(sanpham);
             }
 			else {
-				sanpham = _db.SanPham.Include("TheLoai").FirstOrDefault(sp=>sp.Id == id);
+                sanpham = _db.SanPham
+				   .Include(sp => sp.TheLoai)  // Bao gồm TheLoai
+				   .Include(sp => sp.NhaSanXuat)  // Bao gồm NhaSanXuat
+				   .FirstOrDefault(sp => sp.Id == id);
+
+                if (sanpham == null)
+                {
+                    return NotFound();
+                }
                 return View(sanpham);
             }
 		}

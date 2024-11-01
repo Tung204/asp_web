@@ -1,0 +1,85 @@
+﻿@model HoaDonViewModel
+
+<div class="container">
+    <br />
+    <h2><i class="fas fa-file-invoice"></i> Chi tiết đơn hàng @Model.HoaDon.Id</h2>
+    <p><strong><i class="fas fa-user"></i> Tên khách hàng:</strong> @Model.HoaDon.ApplicationUser.Name</p>
+    <p><strong><i class="fas fa-calendar-alt"></i> Ngày đặt hàng:</strong> @Model.HoaDon.OrderDate</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th><i class="fas fa-box"></i> Sản phẩm</th>
+                <th><i class="fas fa-sort-numeric-up"></i> Số lượng</th>
+                <th><i class="fas fa-tag"></i> Giá</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ChiTietHoaDon)
+            {
+                <tr>
+                    <td>@item.SanPham.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.ProductPrice</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p><strong><i class="fas fa-money-bill-wave"></i> Tổng tiền:</strong> @Model.HoaDon.Total</p>
+</div>
+
+<style>
+    /* Đặt màu nền và kiểu chữ cho toàn bộ container */
+    .container {
+        background-color: #f8f9fa; /* Màu nền sáng */
+        border-radius: 8px; /* Bo góc */
+        padding: 20px; /* Khoảng cách bên trong */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    }
+
+    /* Định dạng cho tiêu đề */
+    h2 {
+        color: #2980b9; /* Màu xanh đậm */
+        font-family: 'Arial', sans-serif; /* Kiểu chữ */
+        margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
+    }
+
+    /* Định dạng cho các phần tử trong bảng */
+    .table {
+        width: 100%; /* Chiều rộng đầy đủ */
+        margin-bottom: 20px; /* Khoảng cách dưới bảng */
+        border-collapse: collapse; /* Kết hợp các đường biên */
+    }
+
+        /* Định dạng cho tiêu đề bảng */
+        .table th {
+            background-color: #007bff; /* Màu nền xanh */
+            color: white; /* Màu chữ trắng */
+            padding: 12px; /* Khoảng cách trong ô */
+            text-align: left; /* Canh trái chữ */
+        }
+
+        /* Định dạng cho các ô dữ liệu */
+        .table td {
+            padding: 10px; /* Khoảng cách trong ô */
+            border: 1px solid #ddd; /* Đường biên sáng */
+        }
+
+        /* Định dạng cho hàng khi rê chuột qua */
+        .table tbody tr:hover {
+            background-color: #f1f1f1; /* Màu nền khi rê chuột */
+        }
+
+    /* Định dạng cho các biểu tượng */
+    .container i {
+        margin-right: 8px; /* Khoảng cách giữa icon và văn bản */
+        color: #2980b9; /* Màu icon */
+        font-size: 1.2em; /* Kích thước icon */
+    }
+
+    /* Định dạng cho tổng tiền */
+    strong {
+        font-size: 1.1em; /* Kích thước chữ lớn hơn */
+    }
+</style>

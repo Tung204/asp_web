@@ -1,0 +1,48 @@
+﻿@model CreateUserViewModel
+<div class="container mt-5">
+    <h2 class="mb-4">Thêm Người Dùng</h2>
+
+    <form asp-action="Create" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label class="form-label" for="Username">Tên người dùng</label>
+            <input asp-for="Username" class="form-control" id="Username" required />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Password">Mật khẩu</label>
+            <input asp-for="Password" type="password" class="form-control" id="Password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Email">Email</label>
+            <input asp-for="Email" class="form-control" id="Email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Name">Tên</label>
+            <input asp-for="Name" class="form-control" id="Name" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Address">Địa chỉ</label>
+            <input asp-for="Address" class="form-control" id="Address" required />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Role">Quyền</label>
+            <select asp-for="Role" class="form-select" id="Role" required>
+                <option value="" disabled selected>Chọn quyền</option>
+                <option value="User">Người dùng</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm người dùng</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

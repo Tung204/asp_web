@@ -26,6 +26,42 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Hoc_Tap\lap_trinh_web\asp_web\ProjectA\ProjectA
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/BoSuuTap/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9TdXVUYXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/BoSuuTap/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9TdXVUYXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/DonHang/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRG9uSGFuZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/DonHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRG9uSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/NhaSanXuat/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmhhU2FuWHVhdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/NhaSanXuat/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmhhU2FuWHVhdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/NhaSanXuat/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmhhU2FuWHVhdFxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/NhaSanXuat/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmhhU2FuWHVhdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/NhaSanXuat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmhhU2FuWHVhdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/SanPham/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2FuUGhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,8 +90,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhlTG9haVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/TheLoai/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhlTG9haVxJbmRleDEuY3NodG1s
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/UserManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/UserManager/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/UserManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlck1hbmFnZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/_ViewImports.cshtml]
@@ -64,6 +108,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Customer/Views/GioHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcR2lvSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Customer/Views/GioHang/ThanhToan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcR2lvSGFuZ1xUaGFuaFRvYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Areas/Customer/Views/Home/Details.cshtml]
@@ -252,6 +304,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Views/SanPham/Upsert.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Views/Shared/Components/BoSuuTap/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQm9TdXVUYXBcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Views/Shared/Components/TheLoai/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGhlTG9haVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Hoc_Tap/lap_trinh_web/asp_web/ProjectA/ProjectA/Views/Shared/Error.cshtml]

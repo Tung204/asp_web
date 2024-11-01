@@ -1,0 +1,8 @@
+﻿@using ProjectA.Models
+@model NhaSanXuat
+<div class="container">
+	ID: <b>@Model.Id</b> <br />
+	Tên nhà sản xuất: <b>@Model.Name</b><br />
+	Ngày tạo: <b> @String.Format("{00:dd/MM/yyyy}", Model.DateEstablished)</b> <br />
+	<a asp-action="Index" class="btn btn-primary">Quay về</a>
+</div>

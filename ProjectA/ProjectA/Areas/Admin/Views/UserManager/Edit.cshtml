@@ -1,0 +1,43 @@
+﻿@model CreateUserViewModel
+
+<div class="container mt-5">
+    <h2 class="mb-4">Chỉnh Sửa Người Dùng</h2>
+
+    <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label class="form-label" for="Username">Tên người dùng</label>
+            <input asp-for="Username" class="form-control" id="Username" required />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Email">Email</label>
+            <input asp-for="Email" class="form-control" id="Email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Name">Tên</label>
+            <input asp-for="Name" class="form-control" id="Name" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="Address">Địa chỉ</label>
+            <input asp-for="Address" class="form-control" id="Address" required />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Cập nhật người dùng</button>
+    </form>
+
+    <!-- Thông báo thành công hoặc lỗi -->
+    @if (ViewData["Message"] != null)
+    {
+        <div class="alert alert-info mt-3" role="alert">
+            @ViewData["Message"]
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

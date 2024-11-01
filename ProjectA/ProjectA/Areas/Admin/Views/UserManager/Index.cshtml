@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ProjectA.Models.ApplicationUser>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Danh Sách Người Dùng</h2>
+
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                    <td>@(user.LockoutEnabled ? "Đang hoạt động" : "Không hoạt động")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                        <form asp-action="Delete" asp-route-id="@user.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <br />
+    <a asp-action="Create" class="btn btn-primary">Thêm Người Dùng</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,5 +1,6 @@
-﻿@model SanPham
-
+﻿@model GioHang
+<form method="post" asp-controller="Home" asp-action="Details">
+    <input type="hidden" asp-for="SanPhamId" value="@Model.SanPhamId" />
 <style>
     .product-image {
         max-width: 100%;
@@ -22,30 +23,30 @@
         text-align: center;
     }
 </style>
-<div class="container mt-5">
-    <div class="row">
+<div class="container mt-5 ">
+   @*  <div class="row">
         <!-- Product Image -->
         <div class="col-md-6">
-            <img src="@Model.ImageUrl" alt="Product Image" class="product-image">
+            <img src="@Model.SanPham.ImageUrl" alt="Product Image" class="product-image">
         </div>
 
         <!-- Product Details -->
         <div class="col-md-6">
-            <h1 class="product-title">@Model.Name</h1>
-            <p class="product-description">@Model.Description</p>
+            <h1 class="product-title">@Model.SanPham.Name</h1>
+            <p class="product-description">@Model.SanPham.Description</p>
             <h4 class="product-price text-danger">
-                @(decimal.Parse(Model.price).ToString("N0")) đ
+                @(decimal.Parse(Model.SanPham.price).ToString("N0")) đ
             </h4>
 
             <!-- Quantity Selector -->
             <div class="quantity-control my-3">
-                <button class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
-                <input type="text" class="form-control quantity-input mx-2" id="quantity" value="1" readonly>
-                <button class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
+                <a class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</a>
+                    <input asp-for="Quantity" type="number" class="form-control quantity-input mx-2" id="quantity" value="@Model.Quantity" readonly>
+                <a class="btn btn-outline-secondary" onclick="increaseQuantity()">+</a>
             </div>
 
             <!-- Add to Cart Button -->
-            <button class="btn btn-danger">Mua ngay</button>
+            <button class="btn btn-danger" onclick="redirectToThanhToan(event)">Mua ngay</button>
             <button class="btn btn-primary" onclick="addToCart()">Thêm vào giỏ hàng</button>
 
             <!-- Success Message -->
@@ -53,37 +54,127 @@
                 Product added to cart successfully!
             </div>
         </div>
-    </div> <!-- Custom JavaScript -->
-    <script>
-        function increaseQuantity() {
-            var quantityInput = document.getElementById('quantity');
-            var currentValue = parseInt(quantityInput.value);
-            quantityInput.value = currentValue + 1;
+    </div> <!-- Custom JavaScript --> *@
+    <div class="row">
+	    <div class="col-md-8 col-sm-8 col-xs-12 product-left">
+		
+		<div id="surround" class="hidden-xs clearfix">
+
+			<div id="sliderproduct-pc">
+				<div class="clearfix"></div>
+				<ul class="slides mThumbnailScroller _mTS_1 mTS-buttons-out auto-mTS-x-hover-50-none" style="position: relative;">
+					<div id="mTS_1" class="mTSWrapper mTS_vertical">
+						<ul class="mTSAutoContainer mTSContainer" id="mTS_1_container" style="position: relative; top: 0px; left: 0px;">
+							<li class="product-thumb mTSThumbContainer active">
+								<a href="javascript:" data-image="//product.hstatic.net/1000026602/product/dsc00570_94b8796073e24ce485cc2ba97804b272_master.jpg" data-zoom-image="//product.hstatic.net/1000026602/product/dsc00570_94b8796073e24ce485cc2ba97804b272_master.jpg">
+                                            <img alt="Giày Gravi Cap Brown Cream" src="@Model.SanPham.ImageUrl" class="mTSThumb">
+								</a>
+							</li>
+
+
+
+							<li class="product-thumb mTSThumbContainer">
+								<a href="javascript:" data-image="//product.hstatic.net/1000026602/product/img_0176_6e90f47800474766a8ec1eef573c502c_master.jpg" data-zoom-image="//product.hstatic.net/1000026602/product/img_0176_6e90f47800474766a8ec1eef573c502c_master.jpg">
+                                            <img alt="Giày Gravi Cap Brown Cream" src="@Model.SanPham.ImageUrl_2" class="mTSThumb">
+								</a>
+							</li>
+
+
+
+							<li class="product-thumb mTSThumbContainer">
+								<a href="javascript:" data-image="//product.hstatic.net/1000026602/product/img_0180_c17b33ba3aa540fa88156b8f9e277a76_master.jpg" data-zoom-image="//product.hstatic.net/1000026602/product/img_0180_c17b33ba3aa540fa88156b8f9e277a76_master.jpg">
+									<img alt="Giày Gravi Cap Brown Cream" src="@Model.SanPham.ImageUrl_3" class="mTSThumb">
+								</a>
+							</li>
+
+
+
+							<li class="product-thumb mTSThumbContainer">
+								<a href="javascript:" data-image="//product.hstatic.net/1000026602/product/img_0195_0f33284ee3ce458da7d4ef20251b7189_master.jpg" data-zoom-image="//product.hstatic.net/1000026602/product/img_0195_0f33284ee3ce458da7d4ef20251b7189_master.jpg">
+                                            <img alt="Giày Gravi Cap Brown Cream" src="@Model.SanPham.ImageUrl_4" class="mTSThumb">
+								</a>
+							</li>
+
+
+
+						</ul>
+					</div>
+					</ul>
+			</div>
+			<div class="product-image-feature">
+                        <div class="col-md-12 featured-images-content">
+                    <img src="@Model.SanPham.ImageUrl" alt="Product Image" class="product-image product-image-feature-item">
+                </div>
+			</div>
+		</div>
+	</div>
+   
+    <div class="col-md-4 col-xs-4 col-sm-2">
+                <h1 class="product-title">@Model.SanPham.Name</h1>
+                <p class="product-description">@Model.SanPham.Description</p>
+                <h4 class="product-price text-danger">
+                    @(decimal.Parse(Model.SanPham.price).ToString("N0")) đ
+                </h4>
+
+                <!-- Quantity Selector -->
+                <div class="quantity-control my-3">
+                    <a class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</a>
+                    <input asp-for="Quantity" type="number" class="form-control quantity-input mx-2" id="quantity" value="@Model.Quantity" readonly>
+                    <a class="btn btn-outline-secondary" onclick="increaseQuantity()">+</a>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <button class="btn btn-danger" onclick="redirectToThanhToan(event)">Mua ngay</button>
+                <button class="btn btn-primary" onclick="addToCart()">Thêm vào giỏ hàng</button>
+
+                <!-- Success Message -->
+                <div id="cart-message" class="alert alert-success mt-3 d-none">
+                    Product added to cart successfully!
+                </div>
+    </div>
+     </div>
+</div> 
+</form>
+<script>
+    function increaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    }
+
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
         }
+    }
+    function redirectToThanhToan(event) {
+        event.preventDefault(); // Ngăn chặn hành động submit mặc định
+        const form = event.target.form;
+        
+        // Submit form
+        form.submit();
 
-        function decreaseQuantity() {
-            var quantityInput = document.getElementById('quantity');
-            var currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-            }
-        }
+        // Chuyển hướng đến trang thanh toán sau khi form được gửi thành công
+        setTimeout(() => {
+            window.location.href = '@Url.Action("ThanhToan", "GioHang")';
+        }); // Thời gian chờ 500ms để đảm bảo form được submit trước khi chuyển hướng
+    }
+    // function addToCart() {
+    //     var quantity = document.getElementById('quantity').value;
+    //     var messageDiv = document.getElementById('cart-message');
 
-        function addToCart() {
-            var quantity = document.getElementById('quantity').value;
-            var messageDiv = document.getElementById('cart-message');
+    //     // Display success message
+    //     messageDiv.classList.remove('d-none');
+    //     messageDiv.textContent = 'Product added to cart! Quantity: ' + quantity;
 
-            // Display success message
-            messageDiv.classList.remove('d-none');
-            messageDiv.textContent = 'Product added to cart! Quantity: ' + quantity;
+    //     // Optionally, you can reset the quantity back to 1 after adding to cart
+    //     document.getElementById('quantity').value = 1;
 
-            // Optionally, you can reset the quantity back to 1 after adding to cart
-            document.getElementById('quantity').value = 1;
-
-            // Hide message after 3 seconds
-            setTimeout(function () {
-                messageDiv.classList.add('d-none');
-            }, 3000);
-        }
-    </script>
-</div>
+    //     // Hide message after 3 seconds
+    //     setTimeout(function () {
+    //         messageDiv.classList.add('d-none');
+    //     }, 3000);
+    // }
+</script>

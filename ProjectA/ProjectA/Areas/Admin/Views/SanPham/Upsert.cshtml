@@ -1,38 +1,61 @@
 ﻿@using ProjectA.Models
 @model SanPham
+
 <div class="container">
-    <h3>Thêm San pham</h3>
-    <div asp-validation-summary="All" class="text-danger">   </div>
+    <h3>Thêm Sản Phẩm</h3>
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
     <form method="post" asp-action="Upsert">
         <div class="form-group">
-            <label asp-for="Name">Tên thể loại</label>
-            <input asp-for="Name" type="text" class="form-control" />
+            <label asp-for="Name">Tên Sản Phẩm</label>
+            <input asp-for="Name" type="text" class="form-control" required />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Description">Ngày tạo</label>
-            <input asp-for="Description" type="date" class="form-control" />
+            <label asp-for="Description">Mô Tả</label>
+            <textarea asp-for="Description" class="form-control" rows="3" required></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="price">Ngày tạo</label>
-            <input asp-for="price" type="number" class="form-control" />
+            <label asp-for="price">Giá</label>
+            <input asp-for="price" type="number" class="form-control" required min="0" step="0.01" />
             <span asp-validation-for="price" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="ImageUrl">Ngày tạo</label>
-            <input asp-for="ImageUrl" type="text" class="form-control" />
+            <label asp-for="ImageUrl">Hình Ảnh</label>
+            <input asp-for="ImageUrl" type="text" class="form-control" required />
             <span asp-validation-for="ImageUrl" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="TheLoaiId">Ngày tạo</label>
-            <select asp-for="TheLoaiId" asp-items="@ViewBag.DSTheLoai" class="form-control">
-                <option disabled>Chon the loai</option>
+            <label asp-for="ImageUrl_2">Hình Ảnh 2</label>
+            <input asp-for="ImageUrl_2" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl_2" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageUrl_3">Hình Ảnh 3</label>
+            <input asp-for="ImageUrl_3" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl_3" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageUrl_4">Hình Ảnh 4</label>
+            <input asp-for="ImageUrl_4" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl_4" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TheLoaiId">Chọn Thể Loại</label>
+            <select asp-for="TheLoaiId" asp-items="@ViewBag.DSTheLoai" class="form-control" required>
+                <option value="">Chọn thể loại</option>
             </select>
             <span asp-validation-for="TheLoaiId" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary">@(Model.Id == 0?"Tao moi":"Cap nhat")Tạo mới</button>
-        <a asp-action="Index" class="btn btn-secondary"></a>
+        <div class="form-group">
+            <label asp-for="NhaSanXuatId">Chọn Nhà Sản Xuất</label>
+            <select asp-for="NhaSanXuatId" asp-items="@ViewBag.DSNhaSX" class="form-control" required>
+                <option value="">Chọn nhà sản xuất</option>
+            </select>
+            <span asp-validation-for="NhaSanXuatId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">@(Model.Id == 0 ? "Tạo mới" : "Cập nhật")</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay về</a>
     </form>
 </div>
 

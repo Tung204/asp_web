@@ -1,50 +1,478 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ProjectA</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ProjectA.styles.css" asp-append-version="true" />
+	<!-- Basic -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- Mobile Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- Site Metas -->
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<title>
+		Diffuso
+	</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- slider stylesheet -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+	<!-- fonts style -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap" rel="stylesheet" />
+	<!-- bootstrap core css -->
+	<link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
+
+	<!-- Custom styles for this template -->
+	<link href="~/css/style.css" rel="stylesheet" />
+	<!-- responsive style -->
+	<link href="~/css/responsive.css" rel="stylesheet" />
+
+	<link href='~/css/fancybox.min.css' rel='stylesheet' type='text/css' media='all' />
+	<link href="~/css/styles.css" rel='stylesheet' type='text/css' media='all' />
+	<link href="~/css/plugins.css" rel='stylesheet' type='text/css' media='all' />
+	<link href="~/css/site.css" rel='stylesheet' type='text/css' media='all' />
+	<link href="~/css/styles.scss.css" rel='stylesheet' type='text/css' media='all' />
+
+	<style>
+		.harafunnel-icon {
+			position: fixed;
+			right: 9px;
+			z-index: 99999999999999;
+		}
+
+		.harafunnel-icon {
+			position: fixed;
+			bottom: 33px !important;
+		}
+
+		.popup-fixed-ad {
+			animation: zoom-in-zoom-out-gift 2s ease-out;
+			-moz-animation: zoom-in-zoom-out-gift 2s ease-out;
+			-webkit-animation: zoom-in-zoom-out-gift 2s ease-out;
+			-o-animation: zoom-in-zoom-out-gift 2s ease-out;
+			animation-iteration-count: infinite;
+			-moz-animation-iteration-count: infinite;
+			-webkit-animation-iteration-count: infinite;
+			-o-animation-iteration-count: infinite;
+		}
+
+		.popup-fixed-ad {
+			position: fixed;
+			bottom: 55px;
+			z-index: 10;
+			cursor: pointer;
+			left: 10px;
+		}
+
+		#search-results-container {
+			position: absolute; /* Đặt vị trí tuyệt đối để hiển thị bên dưới ô tìm kiếm */
+			top: 100%; /* Đặt vị trí dưới ô tìm kiếm */
+			left: 0; /* Căn trái */
+			max-height: 300px; /* Chiều cao tối đa */
+			overflow-y: auto; /* Hiển thị thanh cuộn dọc khi cần */
+			border: 1px solid #ddd; /* Đường viền xung quanh */
+			padding: 10px; /* Khoảng cách bên trong */
+			background-color: #fff; /* Màu nền */
+			z-index: 1000; /* Đảm bảo nó hiển thị trên các phần tử khác */
+		}
+
+		#scrollToTop {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			padding: 10px 15px;
+			font-size: 14px;
+			background-color: #007bff; /* Màu xanh lam */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			transition: opacity 0.3s;
+		}
+
+			#scrollToTop:hover {
+				background-color: #0056b3; /* Tông đậm hơn khi hover */
+			}
+		/* The overlay effect with black background */
+		.overlay {
+			height: 100%;
+			width: 100%;
+			display: none;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0, 0.9); /* Black with a little bit see-through */
+		}
+
+		/* The content */
+		.overlay-content {
+			position: relative;
+			top: 46%;
+			width: 80%;
+			text-align: center;
+			margin-top: 30px;
+			margin: auto;
+		}
+
+		/* Close button */
+		.overlay .closebtn {
+			position: absolute;
+			top: 20px;
+			right: 45px;
+			font-size: 60px;
+			cursor: pointer;
+			color: white;
+		}
+
+			.overlay .closebtn:hover {
+				color: #ccc;
+			}
+
+		/* Style the search field */
+		.overlay input[type=text] {
+			padding: 15px;
+			font-size: 17px;
+			border: none;
+			float: left;
+			width: 80%;
+			background: white;
+		}
+
+			.overlay input[type=text]:hover {
+				background: #f1f1f1;
+			}
+
+		/* Style the submit button */
+		.overlay button {
+			float: left;
+			width: 20%;
+			padding: 15px;
+			background: #ddd;
+			font-size: 17px;
+			border: none;
+			cursor: pointer;
+		}
+
+			.overlay button:hover {
+				background: #bbb;
+			}
+
+
+	</style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProjectA</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<div class="hero_area">
+		<!-- header section strats -->
+		<header class="header_section">
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+					<a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">
+						<img src="~/images/logo.png" alt="" />
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ProjectA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+							<ul class="navbar-nav  ">
+								<li class="nav-item active">
+									<a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Trang chủ <span class="sr-only">(current)</span></a>
+								</li>
+								<li class="nav-item">
+									@await Component.InvokeAsync("BoSuuTap")
+								</li>
+								<li class="nav-item active">
+									@await Component.InvokeAsync("TheLoai")
+								</li>
+								<li class="nav-item">
+									<a asp-action="Index" asp-controller="GioHang" asp-area="Customer" class="nav-link hover-link">
+										<img src="~/images/icons8-shopping-cart-24.png" class="hover-icon">
+									</a>
+								</li>
+								<li class="nav-item">
+									@* 	<!-- Thêm class position-relative cho li -->
+									<form class="d-flex" method="get" asp-action="Search" asp-controller="Home" oninput="showResults()">
+									<input class="form-control me-2 border border-2 rounded-pill" name="searchTerm" value="@ViewBag.SearchString" type="text" placeholder="Nhập sản phẩm cần tìm..." aria-label="Search" style="width: 200px; height: 38px;" onkeyup="searchProducts()">
+									<button class="btn btn-outline-success" type="button" onclick="searchProducts()" style="height: 38px;">
+
+									</button>
+
+									</form>
+									<!-- Container để hiển thị kết quả tìm kiếm -->
+									<div id="search-results-container" style="display:none;"></div> <!-- Ẩn mặc định --> *@
+									<button class="nav-link hover-link btn btn-link" onclick="openSearch()"><img src="~/images/loupe.png" class="hover-icon" /></button>
+								</li>
+								@if (User.IsInRole("Admin"))
+								{
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle hover-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<img src="~/images/team-management.png" class="hover-icon"/>
+										</a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="UserManager" asp-action="Index">
+													<i class="fas fa-user-cog"></i> Quản lý Người Dùng
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="DonHang" asp-action="Index">
+													<i class="fas fa-box"></i> Quản lý Đơn Hàng
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="SanPham" asp-action="Index">
+													<i class="fas fa-box"></i> Quản lý Sản phẩm
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">
+													<i class="fas fa-box"></i> Quản lý thể loại
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="BoSuuTap" asp-action="Index">
+													<i class="fas fa-box"></i> Quản lý bộ sưu tập
+												</a>
+											</li>
+											<li>
+												<a class="dropdown-item" asp-area="Admin" asp-controller="NhaSanXuat" asp-action="Index">
+													<i class="fas fa-box"></i> Quản lý đơn vị sản xuất
+												</a>
+											</li>
+											<!-- Thêm các liên kết quản lý khác nếu cần -->
+										</ul>
+									</li>
+								}
+
+								<li>
+									<partial name="_LoginPartial" />
+								</li>
+							
+									<div id="myOverlay" class="overlay">
+										<span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+										<div class="overlay-content">
+										<form asp-action="Search" asp-controller="Home" asp-area="Customer" method="get">
+											<input type="text" placeholder="Nhập sản phẩm cần tìm..." name="searchString" value="@ViewBag.SearchString">
+											<button type="submit"><img src="~/images/loupe.png" /></button>
+											</form>
+										</div>
+										<script>
+									// Open the full screen search box
+									function openSearch() {
+										document.getElementById("myOverlay").style.display = "block";
+									}
+
+									// Close the full screen search box
+									function closeSearch() {
+										document.getElementById("myOverlay").style.display = "none";
+									}
+								</script>
+									</div>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		@RenderBody()
+		<!-- info section -->
+
+		<section class="info_section  layout_padding2-top">
+			<div class="social_container ">
+				<div class="social_box">
+					<a href="https://www.facebook.com/tung204" class="ico-social-ft fb">
+						<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto" data-src="//theme.hstatic.net/1000026602/1001287570/14/icon_fbn.png?v=78" data-lowsrc="//theme.hstatic.net/1000026602/1001287570/14/icon_fbn.png?v=78" src="//theme.hstatic.net/1000026602/1001287570/14/icon_fbn.png?v=78" sizes="42px">
+					</a>
+					<a href="https://www.instagram.com" class="ico-social-ft in">
+						<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto" data-src="//theme.hstatic.net/1000026602/1001287570/14/icon_instan.png?v=78" data-lowsrc="//theme.hstatic.net/1000026602/1001287570/14/icon_instan.png?v=78" src="//theme.hstatic.net/1000026602/1001287570/14/icon_instan.png?v=78" sizes="42px">
+					</a>
+					<a href="https://www.tiktok.com" class="ico-social-ft in">
+						<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto" data-src="//theme.hstatic.net/1000026602/1001287570/14/icon_tiktok.png?v=78" data-lowsrc="//theme.hstatic.net/1000026602/1001287570/14/icon_tiktok.png?v=78" src="//theme.hstatic.net/1000026602/1001287570/14/icon_tiktok.png?v=78" sizes="42px">
+					</a>
+				</div>
+			</div>
+			<div class="info_container ">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-lg-3">
+							<h6 class="text-warning">
+								Phương thức thanh toán
+							</h6>
+							<div class="flex-social">
+								<div class="image-footer">
+									<img class="lazyautosizes ls-is-cached lazyloaded" data-sizes="auto" data-src="//theme.hstatic.net/1000026602/1001287570/14/img-payment.png?v=78" data-lowsrc="//theme.hstatic.net/1000026602/1001287570/14/img-payment.png?v=78" src="//theme.hstatic.net/1000026602/1001287570/14/img-payment.png?v=78" alt="Phương thức thanh toán" sizes="184px">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-6">
+							<h6 class="text-warning">
+								Địa chỉ cửa hàng
+							</h6>
+							<p>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5688718118577!2d106.86876649999999!3d10.9844602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174ddb237f9dd59%3A0x3ff1538c511f05d7!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBDw7RuZyBOZ2jhu4cgxJDhu5NuZyBOYWk!5e1!3m2!1svi!2s!4v1730297866755!5m2!1svi!2s" width="570" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</p>
+						</div>
+						<div class="col-md-6 col-lg-3">
+							<h6 class="text-warning">
+								LIÊN HỆ VỚI CHÚNG TÔI
+							</h6>
+							<div class="info_link-box">
+								<a href="https://maps.app.goo.gl/AM2Dev3xX5HoooqM7">
+									<img src="~/images/location.png" alt="">
+									<span>Đ. Nguyễn Khuyến, Khu Phố 5, Biên Hòa, Đồng Nai, Việt Nam</span>
+								</a>
+								<a href="tel:0977452034">
+									<img src="~/images/call.png" alt="">
+									<span>+84 977452034</span>
+								</a>
+								<a href="mailto:1822040886@dntu.edu.vn">
+									<img src="~/images/mail.png" alt="">
+									<span> 1822040886@dntu.edu.vn</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- footer section -->
+			<section class=" footer_section">
+				<div class="container">
+					<p>
+						&copy; <span id="displayYear"></span> Mọi quyền được bảo lưu bởi
+						<a href="https://html.design/">Diffuso</a>
+					</p>
+				</div>
+			</section>
+			<!-- footer section -->
+			@* <a href="https://m.me/somehow.vn" target="_blank" class="harafunnel-icon">
+			<span class="messenger_absolute hidden-xs">
+			<svg width="44" height="44" viewBox="0 0 44 44" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<circle cx="22" cy="22" r="22" fill="url(#paint3_linear)"></circle>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M22.0026 7.70215C14.1041 7.70215 7.70117 13.6308 7.70117 20.9442C7.70117 25.1115 9.78083 28.8286 13.0309 31.256V36.305L17.9004 33.6325C19.2 33.9922 20.5767 34.1863 22.0026 34.1863C29.9011 34.1863 36.304 28.2576 36.304 20.9442C36.304 13.6308 29.9011 7.70215 22.0026 7.70215ZM23.4221 25.5314L19.7801 21.6471L12.6738 25.5314L20.4908 17.2331L24.2216 21.1174L31.239 17.2331L23.4221 25.5314Z" fill="white"></path>
+			<defs>
+			<linearGradient id="paint3_linear" x1="21.6426" y1="43.3555" x2="21.6426" y2="0.428639" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1168CF"></stop>
+			<stop offset="1" stop-color="#2CB7FF"></stop>
+			</linearGradient>
+			</defs>
+			</svg>
+			</span>
+			</a> *@
+			<div class="addThis_listSharing is-show">
+				<ul class="addThis_listing">
+					<li class="addThis_item">
+						<a class="addThis_item--icon" href="tel:0977452034" rel="nofollow" aria-label="phone">
+							<svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="22" cy="22" r="22" fill="url(#paint2_linear)"></circle>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M14.0087 9.35552C14.1581 9.40663 14.3885 9.52591 14.5208 9.61114C15.3315 10.148 17.5888 13.0324 18.3271 14.4726C18.7495 15.2949 18.8903 15.9041 18.758 16.3558C18.6214 16.8415 18.3953 17.0971 17.384 17.9109C16.9786 18.239 16.5988 18.5756 16.5391 18.6651C16.3855 18.8866 16.2617 19.3212 16.2617 19.628C16.266 20.3395 16.7269 21.6305 17.3328 22.6232C17.8021 23.3944 18.6428 24.3828 19.4749 25.1413C20.452 26.0361 21.314 26.6453 22.2869 27.1268C23.5372 27.7488 24.301 27.9064 24.86 27.6466C25.0008 27.5826 25.1501 27.4974 25.1971 27.4591C25.2397 27.4208 25.5683 27.0202 25.9268 26.5772C26.618 25.7079 26.7759 25.5674 27.2496 25.4055C27.8513 25.201 28.4657 25.2563 29.0844 25.5716C29.5538 25.8145 30.5779 26.4493 31.2393 26.9095C32.1098 27.5187 33.9703 29.0355 34.2221 29.3381C34.6658 29.8834 34.7427 30.5821 34.4439 31.3534C34.1281 32.1671 32.8992 33.6925 32.0415 34.3444C31.2649 34.9323 30.7145 35.1581 29.9891 35.1922C29.3917 35.222 29.1442 35.1709 28.3804 34.8556C22.3893 32.3887 17.6059 28.7075 13.8081 23.65C11.8239 21.0084 10.3134 18.2688 9.28067 15.427C8.67905 13.7696 8.64921 13.0495 9.14413 12.2017C9.35753 11.8438 10.2664 10.9575 10.9278 10.4633C12.0288 9.64524 12.5365 9.34273 12.9419 9.25754C13.2193 9.19787 13.7014 9.24473 14.0087 9.35552Z" fill="white"></path>
+								<defs>
+									<linearGradient id="paint2_linear" x1="22" y1="-7.26346e-09" x2="22.1219" y2="40.5458" gradientUnits="userSpaceOnUse">
+										<stop offset="50%" stop-color="#FF9F00"></stop>
+										<stop offset="100%" stop-color="#FF9F00"></stop>
+									</linearGradient>
+								</defs>
+							</svg>
+							<span class="tooltip-text">Gọi ngay cho chúng tôi</span>
+						</a>
+					</li>
+					<li class="addThis_item">
+						<a class="addThis_item--icon" href="https://m.me/maytinhbienhoa.vn" target="_blank" rel="nofollow noreferrer" aria-label="zalo">
+							<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="22" cy="22" r="22" fill="url(#paint3_linear)"></circle>
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M22.0026 7.70215C14.1041 7.70215 7.70117 13.6308 7.70117 20.9442C7.70117 25.1115 9.78083 28.8286 13.0309 31.256V36.305L17.9004 33.6325C19.2 33.9922 20.5767 34.1863 22.0026 34.1863C29.9011 34.1863 36.304 28.2576 36.304 20.9442C36.304 13.6308 29.9011 7.70215 22.0026 7.70215ZM23.4221 25.5314L19.7801 21.6471L12.6738 25.5314L20.4908 17.2331L24.2216 21.1174L31.239 17.2331L23.4221 25.5314Z" fill="white"></path>
+								<defs>
+									<linearGradient id="paint3_linear" x1="21.6426" y1="43.3555" x2="21.6426" y2="0.428639" gradientUnits="userSpaceOnUse">
+										<stop offset="50%" stop-color="#1168CF"></stop>
+										<stop offset="100%" stop-color="#2CB7FF"></stop>
+									</linearGradient>
+								</defs>
+							</svg>
+							<span class="tooltip-text">Chat với chúng tôi qua Messenger</span>
+						</a>
+					</li>
+					<li class="addThis_item">
+						<a class="addThis_item--icon" href="https://zalo.me" target="_blank" rel="nofollow noreferrer" aria-label="zalo">
+							<img src="https://file.hstatic.net/1000040345/file/qvtxvnyjqtia56w4ybfy4k-pqvqqh6k5ew_f3414bc317da4a86858cf425fa0bce01.png" alt="zalo">
+							<span class="tooltip-text">Chat với chúng tôi qua Zalo</span>
+						</a>
+					</li>
+					<li>
+						<button id="scrollToTop" onclick="scrollToTop()" style="display: none;">
+							<img src="~/images/Arrow-Double-Up.png"/>
+						</button>
+						<script>
+							// Hiện/ẩn nút khi cuộn
+							window.onscroll = function () { toggleScrollButton() };
+
+							function toggleScrollButton() {
+								const button = document.getElementById("scrollToTop");
+								if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+									button.style.display = "block"; // Hiện nút khi cuộn xuống
+								} else {
+									button.style.display = "none"; // Ẩn nút khi ở đầu trang
+								}
+							}
+
+							// Cuộn lên đầu trang khi bấm nút
+							function scrollToTop() {
+								window.scrollTo({ top: 0, behavior: 'smooth' });
+							}
+
+						</script>
+					</li>
+				</ul>
+				
+			</div>
+
+		</section>
+	</div>
+	
+	<!-- end info section -->
+
+	<script type="text/javascript" src="~/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="~/js/bootstrap.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<script>
+		function searchProducts() {
+			var searchTerm = document.getElementById('searchTerm').value;
+
+			if (searchTerm.length > 2) { // Kích hoạt tìm kiếm sau khi nhập 3 ký tự
+				$.ajax({
+					url: '@Url.Action("Search", "Home")',
+					type: 'GET',
+					data: { searchTerm: searchTerm },
+					success: function (data) {
+						$('#search-results-container').html(data).show(); // Cập nhật và hiển thị kết quả
+						if (data.trim() === '') {
+							$('#search-results-container').hide(); // Ẩn nếu không có kết quả
+						} else {
+							$('#search-results-container').show(); // Hiện kết quả nếu có
+						}
+					},
+					error: function () {
+						$('#search-results-container').html('
+							< p > Lỗi khi lấy kết quả.</p > ').show();
+			}
+				});
+			} else {
+				$('#search-results-container').empty().hide(); // Ẩn và xóa kết quả nếu đầu vào ít hơn 3 ký tự
+			}
+		}
+
+		// Ẩn kết quả tìm kiếm khi nhấn ra ngoài
+		$(document).click(function (event) {
+			if (!$(event.target).closest('#search-results-container').length && !$(event.target).is('#searchTerm')) {
+				$('#search-results-container').hide();
+			}
+		});
+	</script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

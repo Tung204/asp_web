@@ -1,22 +1,18 @@
-html {
-  font-size: 14px;
+﻿.hover-link .hover-icon {
+    transition: filter 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.hover-link:hover .hover-icon {
+    filter: brightness(0) invert(1); /* Chuyển icon sang màu trắng */
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+#search-results-container {
+    position: absolute; /* Đặt vị trí tuyệt đối để hiển thị bên dưới ô tìm kiếm */
+    top: 100%; /* Đặt vị trí dưới ô tìm kiếm */
+    left: 0; /* Căn trái */
+    max-height: 300px; /* Chiều cao tối đa */
+    overflow-y: auto; /* Hiển thị thanh cuộn dọc khi cần */
+    border: 1px solid #ddd; /* Đường viền xung quanh */
+    padding: 10px; /* Khoảng cách bên trong */
+    background-color: #fff; /* Màu nền */
+    z-index: 1000; /* Đảm bảo nó hiển thị trên các phần tử khác */
 }

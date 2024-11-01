@@ -1,61 +1,73 @@
 ﻿@model IEnumerable<SanPham>
-<div class="container">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Ten San PHam</th>
-				<th>Mo ta</th>
-				<th>Gia</th>
-				<th>Hinh anh</th>
-				<th>The Loai</th>
-				<th>
-					Chuc nang
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach(var item in Model)
-			{
-				<tr>
-					<td>@item.Name</td>
-					<td>@item.Description</td>
-					<td>@item.price</td>
-					<td><img src="@item.ImageUrl" width="50%"/></td>
-					<td>@item.TheLoai.Name</td>
-					<td>
-						<a asp-action="Upsert" asp-route-id="@item.Id">Edit</a>
-						<a asp-action="Details">Details</a>
-						<a onclick="confirmDelete(@item.Id, $(this))">Delete</a>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-	<a asp-controller="SanPham" asp-action="Upsert" class="btn btn-primary">Them moi</a>
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Danh sách sản phẩm</h2>
+        <a asp-controller="SanPham" asp-action="Upsert" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Thêm mới
+        </a>
+    </div>
+    <table class="table table-hover table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả</th>
+                <th>Giá</th>
+                <th>Hình ảnh</th>
+                <th>Thể loại</th>
+                <th>Nhà sản xuất</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@string.Format("{0:N0}đ", item.price)</td>
+                    <td><img src="@item.ImageUrl" width="80" class="img-thumbnail" /></td>
+                    <td>@item.TheLoai?.Name</td>
+                    <td>@item.NhaSanXuat?.Name</td>
+                    <td class="text-center">
+                        <a asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-sm btn-warning mx-1">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white mx-1">
+                            <i class="bi bi-info-circle"></i> Details
+                        </a>
+                        <button onclick="confirmDelete(@item.Id, $(this))" class="btn btn-sm btn-danger mx-1">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 <script>
-	function confirmDelete(id, row){
-		if (confirm("Ban co chac chan muon xoa")) {
-			xoa(id, $( row ))
-		}
-	}
-	function xoa(idx, row){
-		$.ajax({
-			url: `SanPham/Delete`,
-			type: 'POST',
-			data: {id: idx},
-			success: function () {
-				if(data.success){
-					row.closest("tr").remove();
-				}
-				else {
-					alert(data.message);
-				}
-			},
-			Error: function (xhr, status, error) {
-				alert("Xoa that bai: " + error);
-			}
-		})
-	}
+    function confirmDelete(id, row) {
+        if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+            xoa(id, row);
+        }
+    }
+
+    function xoa(idx, row) {
+        $.ajax({
+            url: `SanPham/Delete`,
+            type: 'POST',
+            data: { id: idx },
+            success: function (data) {
+                if (data.success) {
+                    row.closest("tr").remove();
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Xóa thất bại: " + error);
+            }
+        });
+    }
 </script>

@@ -1,0 +1,573 @@
+﻿@model GioHangViewModel
+
+<style>
+    .container {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        position: relative;
+        letter-spacing: 1px;
+        padding-bottom: 0.5rem;
+    }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #3c8dbc, #3299b5);
+            border-radius: 2px;
+        }
+
+    .card {
+        background: #fdfdfd;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        border-top: 4px solid transparent;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #3c8dbc;
+        }
+
+    .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-control {
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        width: 100%;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-control:focus {
+            border-color: #3c8dbc;
+            box-shadow: 0 0 8px rgba(60, 141, 188, 0.3);
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #3c8dbc, #3299b5);
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.8rem;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 10px rgba(60, 141, 188, 0.3);
+    }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #3299b5, #2a89a3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(60, 141, 188, 0.4);
+        }
+
+    .summary-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .amount {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #d9534f;
+    }
+
+    .final-total {
+        font-size: 1.6rem;
+        color: #3c8dbc;
+    }
+
+    .payment-method {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+   .payment-option {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.payment-option.selected {
+    background: #3c8dbc;
+    color: #fff;
+    border-color: #3c8dbc;
+            transform: scale(1.05);
+        }
+
+        .payment-option:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.02);
+        }
+
+        .payment-option img {
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
+
+
+    /* Additional Styling for Hover Effects on Summary Lines */
+    .summary-line:hover {
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .account-update {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        transition: all 0.3s ease;
+    }
+
+        .account-update label {
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .account-update input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 2rem);
+            margin: 0.5rem 0;
+        }
+
+        .account-update button {
+            padding: 0.5rem 1rem;
+            background-color: #3c8dbc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .account-update button:hover {
+                background-color: #337ab7;
+            }
+/* Điều chỉnh kích thước của input */
+    #accountNumber {
+        width: auto; /* Đặt chiều rộng là tự động */
+        padding: 5px; /* Thêm một chút padding cho thẩm mỹ */
+        font-size: 16px; /* Kích thước chữ */
+        text-align: center;
+    }
+    .payment-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+</style>
+<div class="container my-5">
+    <form method="post" asp-action="ThanhToan">
+        @Html.AntiForgeryToken()
+    <div class="row">
+        <aside class="col-lg-5 order-lg-2 mb-5">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="h5 mb-0">Thông tin đơn hàng</h2>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless table-sm mb-0">
+                        <tbody>
+                            @foreach (var item in Model.DsGioHang)
+                            {
+                                <tr>
+                                    <td class="position-relative" style=" width: 70px;">
+                                        <img src="@item.SanPham.ImageUrl" class="border border-5 rounded" width="60">
+                                        <span class="position-absolute top-0 start-0 translate-middle badge  bg-secondary text-white"
+                                              style="font-size: 0.7rem; padding: 5px 7px;top: -0.5em;left: -0.75em;border-radius: 50%;width: 23px; height: 23px;display: flex; align-items: center; justify-content: center;">
+                                            @item.Quantity
+                                        </span>
+                                    </td>
+                                    <td class="align-middle">@item.SanPham.Name</td>
+                                    <td class="text-right align-middle w-25">@decimal.Parse(item.SanPham.price).ToString("N0")đ</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+				                <td colspan="2" class="text-left"><input type="text" id="discount_code" class="form-control" placeholder="Nhập mã giảm giá"></td>
+				                <td colspan="2" class="text-right w-25"><button class="btn btn-outline-secondary" id="apply_discount" type="button">Áp dụng</button></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left">Tạm tính</td>
+                                <td colspan="2" class="text-right w-25">@Model.HoaDon.Total.ToString("N0")đ</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left">Phí vận chuyển</td>
+                                    <td colspan="2" class="text-right w-25 shipping-fee">-</td>
+                                    <input type="hidden" id="shippingFeeInput" asp-for="HoaDon.discountcode"/>
+                            </tr>
+                            <tr class="font-weight-bold">
+                                <td colspan="2" class="text-left">Tổng cộng</td>
+                                <td colspan="2" class="text-right total-price">@Model.HoaDon.Total.ToString("N0")đ</td>
+                                <input type="hidden" id="totalcc" asp-for="HoaDon.Total"/>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </aside>
+
+        <main class="col-lg-7 order-lg-1">
+            <div class="mb-4">
+                <h2 class="h4 mb-3">Thông tin giao hàng</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Họ và tên</label>
+                            <input asp-for="HoaDon.Name" type="text" class="form-control" id="name" placeholder="Họ và tên">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Số điện thoại</label>
+                            <input asp-for="HoaDon.PhoneNumber" type="tel" class="form-control" id="phone" placeholder="Số điện thoại" minlength="10" maxlength="11">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="DetailedAddress">Địa chỉ</label>
+                        <input asp-for="HoaDon.DetailedAddress" type="text" class="form-control" id="DetailedAddress" placeholder="Địa chỉ">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="customer_shipping_province">Tỉnh / thành</label>
+                            <select asp-for="HoaDon.Province" class="form-control" id="customer_shipping_province" >
+                                <option value="" selected disabled>Chọn tỉnh / thành</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="customer_shipping_district">Quận / huyện</label>
+                            <select asp-for="HoaDon.District" class="form-control" id="customer_shipping_district">
+                                <option value="" disabled selected>Chọn quận / huyện</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="customer_shipping_ward">Phường / xã</label>
+                            <select asp-for="HoaDon.Ward" class="form-control" id="customer_shipping_ward">
+                                <option value="" disabled selected>Chọn phường / xã</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="h4 mb-3">Phương thức vận chuyển</h2>
+                <div id="shippingFeeNotice" class="alert alert-info">Vui lòng chọn tỉnh / thành để có danh sách phương thức vận chuyển.</div>
+            </div>
+
+            @* <div class="mb-4">
+                <h2 class="h4 mb-3">Phương thức thanh toán</h2>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method_id" id="payment_method_id_54463" checked>
+                        <label class="form-check-label" for="payment_method_id_54463">
+                            Thanh toán khi giao hàng (COD)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method_id" id="payment_method_id_1001969682">
+                        <label class="form-check-label" for="payment_method_id_1001969682">
+                            Chuyển khoản qua ngân hàng
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment_method_id" id="payment_method_id_1002875920">
+                        <label class="form-check-label" for="payment_method_id_1002875920">
+                            Ví MoMo
+                        </label>
+                    </div>
+            </div> *@
+
+                <div class="card payment-method">
+                    <div class="payment-option" onclick="selectPayment('credit-card')">
+                        <img src="data:image/png;base64,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" alt="Credit Card">
+                        Thẻ Tín Dụng
+                    </div>
+                    <div class="payment-option" onclick="selectPayment('momo')">
+                        <img src="https://developers.momo.vn/v3/vi/assets/images/square-8c08a00f550e40a2efafea4a005b1232.png" alt="Momo">
+                        Momo
+                    </div>
+                    <div class="payment-option" onclick="selectPayment('cod')">
+                        <img src="https://png.pngtree.com/png-vector/20210528/ourlarge/pngtree-cash-on-delivery-of-cod-icon-png-image_3381326.jpg" alt="COD">
+                        Thanh Toán Khi Nhận Hàng
+                    </div>
+                    <div id="account-card" class=" payment-details hidden">
+                       
+                        <p for="accountNumber">Số tài khoản: 1234 5678 9012 3456</p>
+               
+                        <p for="accountNumber">Tên chủ tài khoản: NGUYEN SON TUNG</p>
+                        <p for="accountNumber">Tên ngân hàng: ACB (Ngân hàng thương mại cổ phần Á Châu)</p>
+                       @*  <button onclick="saveAccount()">Lưu</button> *@
+                    </div>
+                                <!-- Thông tin thanh toán -->
+            <div id="payment-info" class="hidden">
+                <div id="momo-info" class="payment-details hidden">
+                    
+                    <p>Vui lòng quét mã QR hoặc nhập thông tin cần thiết để hoàn tất thanh toán.</p>
+                    <!-- Thêm mã QR hoặc thông tin Momo ở đây -->
+                </div>
+                <div id="cod-info" class="payment-details hidden">
+                   
+                    <p>Nhận Hàng - Kiểm Tra Hàng - Thanh Toán</p>
+                </div>
+            </div>
+
+                </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-link">Giỏ hàng</a>
+                <button type="submit" class="btn btn-primary">Hoàn tất đơn hàng</button>
+            </div>
+        </main>
+       
+    </div>
+     </form>
+</div>
+
+<script>
+    var provinces, districts, wards;
+    var isFreeShipApplied = false;
+    var discountAmount = 0; // Biến để theo dõi giá trị mã giảm giá
+    // Load dữ liệu từ các file JSON
+    $.when(
+        $.getJSON("/json/tinh_tp.json"),
+        $.getJSON("/json/quan_huyen.json"),
+        $.getJSON("/json/xa_phuong.json")
+    ).done(function (provinceData, districtData, wardData) {
+
+        // Kiểm tra xem dữ liệu có được lấy đúng không
+        if (Array.isArray(provinceData) && Array.isArray(districtData) && Array.isArray(wardData)) {
+            provinces = provinceData[0];
+            districts = districtData[0];
+            wards = wardData[0];
+            initProvinces();
+        } else {
+            console.error("Dữ liệu không đúng định dạng!");
+        }
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.error("Lỗi khi tải dữ liệu: ", textStatus, errorThrown);
+    });
+
+$(document).ready(function () {
+    // Xử lý khi chọn Tỉnh / Thành
+    $('#customer_shipping_province').change(function () {
+        var provinceCode = $(this).val();
+        var provinceName = $('#customer_shipping_province option:selected').text();
+        console.log('Province selected:', provinceCode);
+
+        // Cập nhật danh sách quận / huyện theo tỉnh thành
+        var districtOptions = getDistricts(provinceCode);
+        $('#customer_shipping_district').html('<option value="" selected disabled>Chọn quận / huyện</option>' + districtOptions);
+        $('#customer_shipping_ward').html('<option value="" selected disabled>Chọn phường / xã</option>');
+
+         // // Cập nhật phí vận chuyển nếu không có mã free ship
+         //    if (!isFreeShipApplied) {
+         //        updateShippingFee();
+         //    }
+            updateShippingFee(); 
+            updateTotal(); // Cập nhật tổng tiền khi thay đổi tỉnh thành
+        });
+
+    // Xử lý khi chọn Quận / Huyện
+    $('#customer_shipping_district').change(function () {
+        var districtCode = $(this).val();
+        console.log('District selected:', districtCode);
+            // Cập nhật danh sách phường / xã theo quận huyện
+        var wardOptions = getWards(districtCode);
+        $('#customer_shipping_ward').html('<option value="" selected disabled>Chọn phường / xã</option>' + wardOptions);
+        });
+    // Xử lý khi nhấn nút áp dụng mã giảm giá
+        $('#apply_discount').click(function () {
+            var discountCode = $('#discount_code').val().trim();
+            if (discountCode.toLowerCase() === 'freeship' && !isFreeShipApplied) {
+                isFreeShipApplied = true; // Đánh dấu là đã áp dụng free ship
+                // updateShippingFee(null); // Không cần truyền tỉnh thành, phí vận chuyển sẽ là 0
+                // discountAmount = 0; // Mã này không có giá trị giảm giá, chỉ miễn phí vận chuyển
+                updateShippingFee();
+                updateTotal(); // Cập nhật tổng tiền
+                alert('Mã giảm giá miễn phí vận chuyển đã được áp dụng!');
+            } else if (discountCode.toLowerCase() === 'giam10') { // Ví dụ mã giảm giá 10%
+                discountAmount = 0.1; // Giả sử mã này giảm 10% tổng tiền
+                // updateShippingFee(); // Cập nhật phí vận chuyển
+                updateTotal(); // Cập nhật tổng tiền
+                alert('Mã giảm giá 10% đã được áp dụng!');
+                
+            } else {
+                alert('Mã giảm giá không hợp lệ hoặc đã được áp dụng.');
+            }
+        });
+});
+
+    // Hàm cập nhật phí vận chuyển
+    function updateShippingFee() {
+        let shippingFee = 30000;
+
+        // Nếu đã chọn tỉnh thành
+        if ($('#customer_shipping_province').val()) {
+            // Nếu mã free ship đã được áp dụng
+            if (isFreeShipApplied) {
+                shippingFee = 0;
+            } else {
+                const selectedProvince = $('#customer_shipping_province option:selected').text();
+                // Kiểm tra nếu tỉnh thành là "Đồng Nai" hoặc "Thành phố Hồ Chí Minh"
+                if (selectedProvince === "Tỉnh Đồng Nai" || selectedProvince === "Thành phố Hồ Chí Minh") {
+                    shippingFee = 0;
+                }
+            }
+        } else {
+            // Nếu chưa chọn tỉnh thành, không hiển thị phí vận chuyển
+            shippingFee = 0; // Đặt phí vận chuyển về 0 nếu chưa chọn tỉnh thành
+        }
+
+        // Hiển thị phí vận chuyển
+        $('#shippingFeeNotice').html(`Phí vận chuyển: ${shippingFee === 0 ? 'Miễn phí' : shippingFee.toLocaleString() + 'đ'}`);
+
+        // Cập nhật phí vận chuyển và tổng cộng
+        $('td.shipping-fee').text(shippingFee.toLocaleString() + 'đ');
+        const subTotal = parseInt(@Model.HoaDon.Total);
+        const total = subTotal + shippingFee;
+        $('td.total-price').text(total.toLocaleString() + 'đ');
+        document.getElementById("shippingFeeInput").value = shippingFee;
+    }
+    // Hàm cập nhật tổng tiền
+    function updateTotal() {
+        const subTotal = parseInt(@Model.HoaDon.Total); // Tổng tiền trước khi tính phí vận chuyển và giảm giá
+        let shippingFee = isFreeShipApplied ? 0 : 30000; // Xác định phí vận chuyển
+        // Nếu đã chọn tỉnh thành, cập nhật phí vận chuyển
+        if ($('#customer_shipping_province').val()) {
+            if (isFreeShipApplied) {
+                shippingFee = 0;
+            } else {
+                const selectedProvince = $('#customer_shipping_province option:selected').text();
+                if (selectedProvince === "Tỉnh Đồng Nai" || selectedProvince === "Thành phố Hồ Chí Minh") {
+                    shippingFee = 0;
+                } else {
+                    shippingFee = 30000; // Đặt lại phí vận chuyển nếu không phải tỉnh miễn phí
+                }
+            }
+        }
+
+        let total = subTotal + shippingFee; // Tổng tiền bao gồm phí vận chuyển
+
+        // Nếu có mã giảm giá, áp dụng nó vào tổng tiền
+        if (discountAmount > 0) {
+            total -= total * discountAmount; // Giảm giá dựa trên tổng tiền
+        }
+        
+        document.getElementById("shippingFeeInput").value = shippingFee;
+        // Hiển thị tổng tiền
+        $('td.total-price').text(total.toLocaleString() + 'đ');
+        document.getElementById("totalcc").value = total;
+        
+    }
+    function initProvinces() {
+        var html = '<option value="" selected disabled>Chọn tỉnh / thành</option>';
+        $.each(provinces, function (key, value) {
+            html += '<option value="' + value.code + '">' + value.name_with_type + '</option>';
+        });
+        $('#customer_shipping_province').html(html);
+    }
+
+    function getDistricts(provinceCode) {
+        var html = '';
+        $.each(districts, function (key, value) {
+            if (value.parent_code === provinceCode) {
+                html += '<option value="' + value.code + '">' + value.name_with_type + '</option>';
+            }
+        });
+        return html;
+    }
+
+    function getWards(districtCode) {
+        var html = '';
+        $.each(wards, function (key, value) {
+            if (value.parent_code === districtCode) {
+                html += '<option value="' + value.code + '">' + value.name_with_type + '</option>';
+            }
+        });
+        return html;
+    }
+function selectPayment(method) {
+    // Ẩn tất cả các thông tin thanh toán
+    document.querySelectorAll('.payment-details').forEach(element => {
+        element.classList.add('hidden');
+    });
+
+    // Hiện thông tin thanh toán tương ứng
+    if (method === 'momo') {
+        document.getElementById('momo-info').classList.remove('hidden');
+    } else if (method === 'cod') {
+        document.getElementById('cod-info').classList.remove('hidden');
+    } else if (method === 'credit-card') {
+        // Hiện thông tin thẻ tín dụng (nếu cần)
+        document.getElementById('account-card').classList.remove('hidden');
+    }
+
+    // Hiện phần thông tin thanh toán
+    document.getElementById('payment-info').classList.remove('hidden');
+
+    // Xóa class selected khỏi tất cả các phương thức
+    document.querySelectorAll('.payment-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+
+    // Thêm class selected vào phương thức được chọn
+    document.querySelector(`.payment-option[onclick="selectPayment('${method}')"]`).classList.add('selected');
+
+}
+
+// Hàm để lưu số tài khoản
+// function saveAccount() {
+//     const accountNumber = document.getElementById('accountNumber').value;
+//     alert(`Số tài khoản đã được lưu: ${accountNumber}`);
+//     // Xử lý logic lưu số tài khoản vào cơ sở dữ liệu ở đây nếu cần
+// }
+
+// // Gọi hàm để cập nhật tổng cuối cùng nếu cần
+// updateFinalTotal();
+
+
+</script>
